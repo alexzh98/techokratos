@@ -69,7 +69,7 @@ Logger log = LoggerFactory.getLogger(OrderController.class);
         log.trace("position added:"+products.size());
         order.setProducts(products);
 
-      // orderService.save(order);
+       orderService.save(order);
 
         return new ResponseEntity<List<Product>>(products,HttpStatus.OK);
     }
