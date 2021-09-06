@@ -23,7 +23,6 @@ private ProductRepository productRepository;
     public static void main(String[] args) {
         SpringApplication.run(TechnokratosTestTaskApplication.class, args);
     }
-    @Transactional
     @Override
     public void run(String... args) throws Exception {
         Product irbis = new Product(17099d,false,170004141,"Irbis NB248 14.1, black");
@@ -42,28 +41,24 @@ private ProductRepository productRepository;
         productRepository.save(lenovo3);
         Date f = new SimpleDateFormat("yyyy-MM-dd").parse("2021-02-02");
         Date f2 = new SimpleDateFormat("yyyy-MM-dd").parse("2021-04-02");
-        Date f3 = new SimpleDateFormat("yyyy-MM-dd").parse("2021-05-02");
         Order order1 = new Order();
         order1.setDate(f);
-        order1.setOrder_number(((int)f.getTime())*-1);
+        int dateHash = f.hashCode();
+        int hash = dateHash>0? dateHash: dateHash*-1;
+        order1.setOrder_number(hash);
         order1.setEmail("asdad@mail.ru");
         order1.addProduct(irbis);
         order1.addProduct(asus);
 
         Order order2 = new Order();
-        order2.setOrder_number(((int)f.getTime())*-1);
+        int dateHash2 = f2.hashCode();
+        int hash2 = dateHash2>0? dateHash2: dateHash2*-1;
+        order2.setOrder_number(hash2);
         order2.setDate(f2);
         order2.setEmail("obcvb@mail.ru");
         order2.addProduct(lenovo);
         order2.addProduct(irbis);
-
-        Order order3 = new Order();
-        order3.setDate(f3);
-        order3.setOrder_number(((int)f.getTime())*-1);
-        order3.setEmail("opfgijd3@ya.ru");
-        order3.addProduct(lenovo3);
-        order3.addProduct(lenovo145);
-        order3.addProduct(lenovo1);
-        order3.addProduct(lenovo2);
+        orderRepository.save(order1);
+        orderRepository.save(order2);
     }
 }
