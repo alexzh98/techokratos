@@ -2,13 +2,12 @@ package com.example.technokratostesttask;
 
 import com.example.technokratostesttask.Repository.OrderRepository;
 import com.example.technokratostesttask.Repository.ProductRepository;
-import com.example.technokratostesttask.model.Order;
-import com.example.technokratostesttask.model.Product;
+import com.example.technokratostesttask.entity.Order;
+import com.example.technokratostesttask.entity.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -18,7 +17,7 @@ public class TechnokratosTestTaskApplication implements CommandLineRunner {
 @Autowired
     private OrderRepository orderRepository;
 @Autowired
-private ProductRepository productRepository;
+    private ProductRepository productRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(TechnokratosTestTaskApplication.class, args);
@@ -32,6 +31,7 @@ private ProductRepository productRepository;
         Product lenovo1 = new Product(22899d,false,220005116,"Lenovo IdeaPad 1 11.6, blue");
         Product lenovo2 = new Product(22999d,false,220006115,"LenovoIdeaPad 1 11.6, gray");
         Product lenovo3 = new Product(22999d,false,220007140,"Acer Aspire 1 11.6, blue");
+
         productRepository.save(irbis);
         productRepository.save(lenovo);
         productRepository.save(asus);
@@ -39,8 +39,10 @@ private ProductRepository productRepository;
         productRepository.save(lenovo1);
         productRepository.save(lenovo2);
         productRepository.save(lenovo3);
+
         Date f = new SimpleDateFormat("yyyy-MM-dd").parse("2021-02-02");
         Date f2 = new SimpleDateFormat("yyyy-MM-dd").parse("2021-04-02");
+
         Order order1 = new Order();
         order1.setDate(f);
         int dateHash = f.hashCode();
@@ -58,6 +60,7 @@ private ProductRepository productRepository;
         order2.setEmail("obcvb@mail.ru");
         order2.addProduct(lenovo);
         order2.addProduct(irbis);
+
         orderRepository.save(order1);
         orderRepository.save(order2);
     }

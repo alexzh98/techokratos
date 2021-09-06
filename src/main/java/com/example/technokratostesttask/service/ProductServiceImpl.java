@@ -2,7 +2,7 @@ package com.example.technokratostesttask.service;
 
 
 import com.example.technokratostesttask.Repository.ProductRepository;
-import com.example.technokratostesttask.model.Product;
+import com.example.technokratostesttask.entity.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -21,7 +21,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Optional< Product> findByArticle(Integer article) {
+    public Optional< Product> findOneByArticle(Integer article) {
         return repository.findByArticle(article);
     }
 

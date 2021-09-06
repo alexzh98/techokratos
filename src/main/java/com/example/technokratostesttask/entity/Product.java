@@ -1,7 +1,4 @@
-package com.example.technokratostesttask.model;
-
-
-
+package com.example.technokratostesttask.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import javax.persistence.*;
@@ -12,6 +9,7 @@ import java.util.List;
 @Table(name = "product")
 @Data
 public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,9 +22,13 @@ public class Product {
     @Column(name = "title")
     private String title;
 
-    @ManyToMany(mappedBy = "products")
     @JsonBackReference
+    @ManyToMany(mappedBy="products")
     private List<Order> orders = new ArrayList<>();
+
+    public Product(){
+
+    }
 
     public Product(Double price, Boolean delete, Integer article, String title) {
         this.price = price;
@@ -35,10 +37,5 @@ public class Product {
         this.title = title;
     }
 
-public Product(){
 
-}
-    public Long getId() {
-        return id;
-    }
 }

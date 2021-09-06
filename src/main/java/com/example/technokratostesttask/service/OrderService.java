@@ -1,9 +1,10 @@
 package com.example.technokratostesttask.service;
 
-import com.example.technokratostesttask.model.Order;
-import org.springframework.data.repository.query.Param;
+import com.example.technokratostesttask.entity.Order;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
@@ -15,5 +16,8 @@ public interface OrderService {
     List<Order> findByDateBetween(Date date, Date date2);
     List<Order> findAll();
     List<Order> findByArticle(Integer article);
+    ResponseEntity<?> createOrder(String email, List<Integer>articles);
+    ResponseEntity<?>getOrdersByPositionArticle(int article);
+    ResponseEntity<?> getOrdersBetweenTwoDate(String dateStart, String dateEnd);
 
 }
