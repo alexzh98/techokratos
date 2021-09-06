@@ -28,7 +28,16 @@ public class Product {
     @JsonBackReference
     private List<Order> orders = new ArrayList<>();
 
+    public Product(Double price, Boolean delete, Integer article, String title) {
+        this.price = price;
+        this.delete = delete;
+        this.article = article;
+        this.title = title;
+    }
 
+public Product(){
+
+}
     public Long getId() {
         return id;
     }
