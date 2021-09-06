@@ -26,4 +26,12 @@ UPD: можно запутить с командной строки
 создать бд
 запустить скрипт /srs/main/resources/db.sql
 mvn spring-boot:run
-Нужен jdk 16.
+Нужен jdk 16..
+Перед запуском выполнять скрипт
+POST http://localhost:8085/new - создание нового заказа. Ключи- email и article
+GET http://localhost:8085/orders - просмотр всех заказов
+GET http://localhost:8085/byEmail - поиск по емейлу - ключ- email
+GET http://localhost:8085/betweenTwoDate -поиск между двумя датами , ключи- start;end
+GET http://localhost:8085/findOrderByArticle поиск заказов по содержащимся в них артикуле, ключ- article
+GET http://localhost:8085/findByArticle -поиск товара по артикулу, ключ- article
+GET http://localhost:8085/findDeletePosition - поиск удалённых позиций
