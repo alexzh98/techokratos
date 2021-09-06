@@ -28,10 +28,17 @@ UPD: можно запутить с командной строки
 mvn spring-boot:run
 Нужен jdk 16..
 Перед запуском выполнять скрипт
+_____
 POST http://localhost:8085/new - создание нового заказа. Ключи- email и article
+_____
 GET http://localhost:8085/orders - просмотр всех заказов
+_____
 GET http://localhost:8085/byEmail - поиск по емейлу - ключ- email
+_____
 GET http://localhost:8085/betweenTwoDate -поиск между двумя датами , ключи- start;end
+_____
 GET http://localhost:8085/findOrderByArticle поиск заказов по содержащимся в них артикуле, ключ- article
+_____
 GET http://localhost:8085/findByArticle -поиск товара по артикулу, ключ- article
+_____
 GET http://localhost:8085/findDeletePosition - поиск удалённых позиций
