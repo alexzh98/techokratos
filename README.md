@@ -35,7 +35,7 @@ GET http://localhost:8085/orders - просмотр всех заказов
 _____
 GET http://localhost:8085/byEmail - поиск по емейлу - ключ- email
 _____
-GET http://localhost:8085/betweenTwoDate -поиск между двумя датами , ключи- start;end
+GET http://localhost:8085/betweenTwoDate -поиск между двумя датами , ключи- start&end
 _____
 GET http://localhost:8085/findOrderByArticle поиск заказов по содержащимся в них артикуле, ключ- article
 _____
