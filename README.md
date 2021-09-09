@@ -29,16 +29,16 @@ mvn spring-boot:run
 Нужен jdk 16..  
 Перед запуском выполнять скрипт для бд
 _____
-POST http://localhost:8085/new - создание нового заказа. Ключи- email и article
+POST http://localhost:8085/new - создание нового заказа. параметры - email и article
 _____
 GET http://localhost:8085/orders - просмотр всех заказов
 _____
-GET http://localhost:8085/byEmail - поиск по емейлу - ключ- email
+GET http://localhost:8085/byEmail - поиск по емейлу - параметр- email
 _____
-GET http://localhost:8085/betweenTwoDate -поиск между двумя датами , ключи- start&end
+GET http://localhost:8085/betweenTwoDate -поиск между двумя датами , параметры- start&end
 _____
-GET http://localhost:8085/findOrderByArticle поиск заказов по содержащимуся в них артикуле, ключ- article
+GET http://localhost:8085/findOrderByArticle поиск заказов по содержащимуся в них артикуле, параметр- article
 _____
-GET http://localhost:8085/findByArticle -поиск товара по артикулу, ключ- article
+GET http://localhost:8085/findByArticle -поиск товара по артикулу, параметр- article
 _____
 GET http://localhost:8085/findDeletePosition - поиск удалённых позиций
